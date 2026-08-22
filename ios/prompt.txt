@@ -1,20 +1,19 @@
-Convert the source recipe below into a Cookidoo-import-friendly Thermomix recipe page.
+Convert the source recipe into a Cookidoo Bridge recipe JSON object conforming to schema version 1.0.
 
-Return ONLY valid JSON with exactly these top-level keys:
-- "slug": lowercase ASCII kebab-case, concise and unique
-- "title": recipe title
-- "html": a complete standalone HTML document as one JSON string
+Return ONLY the JSON object. Do not use Markdown fences. Do not include commentary.
 
-Requirements for the HTML:
-- Include visible title, servings, prep/cook/total time, ingredients, numbered preparation steps and approximate nutrition when reasonably inferable.
-- Include a valid <script type="application/ld+json"> block using schema.org Recipe.
-- Include recipeIngredient as an array of plain ingredient strings.
-- Include recipeInstructions as HowToStep objects.
-- Translate/adapt ordinary preparation into practical Thermomix TM6-compatible steps where useful, but keep pan/oven/grill steps when they produce a better result.
-- Express Thermomix steps explicitly, e.g. "5 sec / speed 7" or "4 min / 90°C / speed 1".
+Canonical schema:
+https://lmguen26.github.io/cookidoo-bridge/schema/recipe.schema.json
+
+Rules:
+- `schema_version` must be `1.0`.
+- `slug` must be lowercase ASCII kebab-case.
+- Prefer metric units and grams where practical.
+- Preserve recipe intent while adapting suitable chopping, mixing, heating and sauce steps to Thermomix TM6.
+- Keep pan, oven, grill, air-fryer or other external cooking steps when they produce a better result.
+- Put machine settings only inside each step's `thermomix` object.
+- Use `time_seconds`, `speed`, `temperature_c`, `reverse`, `mode`, and `measuring_cup` only when relevant.
 - Do not claim unsupported Cookidoo guided-cooking features.
-- Prefer grams and metric units.
-- Do not add commentary outside the JSON.
-- Escape the HTML correctly so the overall response remains valid JSON.
-
-SOURCE RECIPE:
+- Nutrition should be approximate and per serving when reasonably inferable.
+- Ingredient objects should separate quantity, unit, ingredient, note and optional group.
+- Steps must have sequential integer `order` values starting at 1.
