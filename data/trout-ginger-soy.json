@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "slug": "trout-ginger-soy",
   "title": "Pan-Seared Trout with Ginger-Soy Sauce",
   "description": "A lower-calorie, high-protein trout dinner with a Thermomix-prepared ginger-soy sauce.",
@@ -11,29 +11,29 @@
   "cuisine": "Asian-inspired",
   "tags": ["fish", "high-protein", "lower-calorie", "weeknight", "Thermomix"],
   "ingredients": [
-    {"quantity": 4, "unit": null, "ingredient": "trout fillets", "note": "about 150-180 g each", "group": null},
-    {"quantity": 1, "unit": "tsp", "ingredient": "neutral oil", "note": null, "group": null},
-    {"quantity": 15, "unit": "g", "ingredient": "fresh ginger", "note": "peeled", "group": "Sauce"},
-    {"quantity": 1, "unit": null, "ingredient": "garlic clove", "note": null, "group": "Sauce"},
-    {"quantity": 30, "unit": "g", "ingredient": "low-sodium soy sauce", "note": null, "group": "Sauce"},
-    {"quantity": 20, "unit": "g", "ingredient": "rice vinegar", "note": null, "group": "Sauce"},
-    {"quantity": 15, "unit": "g", "ingredient": "maple syrup or honey", "note": null, "group": "Sauce"},
-    {"quantity": 10, "unit": "g", "ingredient": "lime juice", "note": null, "group": "Sauce"},
-    {"quantity": 30, "unit": "g", "ingredient": "water", "note": null, "group": "Sauce"},
-    {"quantity": 1, "unit": "tsp", "ingredient": "toasted sesame oil", "note": null, "group": "Sauce"},
-    {"quantity": 2, "unit": null, "ingredient": "green onions", "note": "thinly sliced", "group": "Garnish"},
-    {"quantity": 1, "unit": "tsp", "ingredient": "sesame seeds", "note": "optional", "group": "Garnish"}
+    {"id":"trout-fillets","quantity":4,"unit":null,"ingredient":"trout fillets","note":"about 150-180 g each","group":null},
+    {"id":"neutral-oil","quantity":1,"unit":"tsp","ingredient":"neutral oil","note":null,"group":null},
+    {"id":"fresh-ginger","quantity":15,"unit":"g","ingredient":"fresh ginger","note":"peeled","group":"Sauce"},
+    {"id":"garlic-clove","quantity":1,"unit":null,"ingredient":"garlic clove","note":null,"group":"Sauce"},
+    {"id":"soy-sauce","quantity":30,"unit":"g","ingredient":"low-sodium soy sauce","note":null,"group":"Sauce"},
+    {"id":"rice-vinegar","quantity":20,"unit":"g","ingredient":"rice vinegar","note":null,"group":"Sauce"},
+    {"id":"maple-honey","quantity":15,"unit":"g","ingredient":"maple syrup or honey","note":null,"group":"Sauce"},
+    {"id":"lime-juice","quantity":10,"unit":"g","ingredient":"lime juice","note":null,"group":"Sauce"},
+    {"id":"water","quantity":30,"unit":"g","ingredient":"water","note":null,"group":"Sauce"},
+    {"id":"sesame-oil","quantity":1,"unit":"tsp","ingredient":"toasted sesame oil","note":null,"group":"Sauce"},
+    {"id":"green-onions","quantity":2,"unit":null,"ingredient":"green onions","note":"thinly sliced","group":"Garnish"},
+    {"id":"sesame-seeds","quantity":1,"unit":"tsp","ingredient":"sesame seeds","note":"optional","group":"Garnish"}
   ],
   "steps": [
-    {"order": 1, "instruction": "Pat the trout fillets dry. Season lightly with pepper; add little or no salt because the sauce contains soy sauce.", "thermomix": null},
-    {"order": 2, "instruction": "Add ginger and garlic to the mixing bowl. Chop, then scrape down the bowl.", "thermomix": {"time_seconds": 5, "speed": 7, "temperature_c": null, "reverse": false, "mode": null, "measuring_cup": null}},
-    {"order": 3, "instruction": "Add soy sauce, rice vinegar, maple syrup or honey, lime juice, water and sesame oil. Mix.", "thermomix": {"time_seconds": 10, "speed": 4, "temperature_c": null, "reverse": false, "mode": null, "measuring_cup": null}},
-    {"order": 4, "instruction": "Cook the sauce, then transfer to a small serving jug and keep warm.", "thermomix": {"time_seconds": 240, "speed": 1, "temperature_c": 90, "reverse": false, "mode": null, "measuring_cup": "off"}},
-    {"order": 5, "instruction": "Heat a large non-stick frying pan over medium-high heat. Add the neutral oil.", "thermomix": null},
-    {"order": 6, "instruction": "Place trout skin-side down if skin-on. Cook about 4-5 minutes, pressing gently for the first 20 seconds so the skin remains flat.", "thermomix": null},
-    {"order": 7, "instruction": "Turn the fillets and cook about 1-3 minutes more, depending on thickness, until just cooked through and still moist.", "thermomix": null},
-    {"order": 8, "instruction": "Plate immediately. Spoon a modest amount of warm ginger-soy sauce over each fillet and garnish with green onion and optional sesame seeds.", "thermomix": null}
+    {"order":1,"action":"prepare","ingredient_ids":["trout-fillets"],"instruction":"Pat the trout fillets dry. Season lightly with pepper; add little or no salt because the sauce contains soy sauce.","thermomix":null},
+    {"order":2,"action":"chop","ingredient_ids":["fresh-ginger","garlic-clove"],"instruction":"Add ginger and garlic to the mixing bowl. Chop, then scrape down the bowl.","thermomix":{"duration_seconds":5,"speed":7,"temperature_c":null,"reverse":false,"mode":null,"measuring_cup":"on"}},
+    {"order":3,"action":"mix","ingredient_ids":["soy-sauce","rice-vinegar","maple-honey","lime-juice","water","sesame-oil"],"instruction":"Add soy sauce, rice vinegar, maple syrup or honey, lime juice, water and sesame oil. Mix.","thermomix":{"duration_seconds":10,"speed":4,"temperature_c":null,"reverse":false,"mode":null,"measuring_cup":"on"}},
+    {"order":4,"action":"cook","ingredient_ids":[],"instruction":"Cook the sauce, then transfer to a small serving jug and keep warm.","thermomix":{"duration_seconds":240,"speed":1,"temperature_c":90,"reverse":false,"mode":null,"measuring_cup":"off"}},
+    {"order":5,"action":"heat","ingredient_ids":["neutral-oil"],"instruction":"Heat a large non-stick frying pan over medium-high heat. Add the neutral oil.","thermomix":null},
+    {"order":6,"action":"pan-fry","ingredient_ids":["trout-fillets"],"instruction":"Place trout skin-side down if skin-on. Cook about 4-5 minutes, pressing gently for the first 20 seconds so the skin remains flat.","thermomix":null},
+    {"order":7,"action":"pan-fry","ingredient_ids":["trout-fillets"],"instruction":"Turn the fillets and cook about 1-3 minutes more, depending on thickness, until just cooked through and still moist.","thermomix":null},
+    {"order":8,"action":"serve","ingredient_ids":["green-onions","sesame-seeds"],"instruction":"Plate immediately. Spoon a modest amount of warm ginger-soy sauce over each fillet and garnish with green onion and optional sesame seeds.","thermomix":null}
   ],
-  "nutrition": {"calories_per_serving": 330, "protein_g": 38, "carbs_g": null, "fat_g": null},
-  "source": {"name": "ChatGPT", "url": null}
+  "nutrition": {"calories_per_serving":330,"protein_g":38,"carbs_g":null,"fat_g":null},
+  "source": {"name":"ChatGPT","url":null}
 }
