@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "required": ["schema_version", "slug", "title", "servings", "ingredients", "steps"],
   "properties": {
-    "schema_version": {"type": "string", "const": "1.0"},
+    "schema_version": {"type": "string", "const": "1.1"},
     "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
     "title": {"type": "string", "minLength": 1},
     "description": {"type": "string"},
@@ -23,8 +23,9 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["ingredient"],
+        "required": ["id", "ingredient"],
         "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
           "quantity": {"type": ["number", "string", "null"]},
           "unit": {"type": ["string", "null"]},
           "ingredient": {"type": "string", "minLength": 1},
@@ -39,20 +40,29 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["order", "instruction"],
+        "required": ["order", "action", "instruction"],
         "properties": {
           "order": {"type": "integer", "minimum": 1},
+          "action": {
+            "type": "string",
+            "enum": ["prepare", "add", "chop", "mix", "blend", "grind", "knead", "whip", "cook", "heat", "steam", "saute", "stir", "rest", "pan-fry", "bake", "grill", "assemble", "serve", "manual"]
+          },
+          "ingredient_ids": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+            "uniqueItems": true
+          },
           "instruction": {"type": "string", "minLength": 1},
           "thermomix": {
             "type": ["object", "null"],
             "additionalProperties": false,
             "properties": {
-              "time_seconds": {"type": ["integer", "null"], "minimum": 0},
+              "duration_seconds": {"type": ["integer", "null"], "minimum": 0},
               "speed": {"type": ["number", "string", "null"]},
-              "temperature_c": {"type": ["number", "null"]},
+              "temperature_c": {"type": ["number", "null"], "minimum": 0, "maximum": 160},
               "reverse": {"type": "boolean", "default": false},
               "mode": {"type": ["string", "null"]},
-              "measuring_cup": {"type": ["string", "null"]}
+              "measuring_cup": {"type": ["string", "null"], "enum": ["on", "off", "basket", null]}
             }
           }
         }
