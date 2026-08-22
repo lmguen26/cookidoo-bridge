@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lmguen26.github.io/cookidoo-bridge/schema/recipe.schema.json",
+  "title": "Cookidoo Bridge Recipe",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "slug", "title", "servings", "ingredients", "steps"],
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0"},
+    "slug": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "title": {"type": "string", "minLength": 1},
+    "description": {"type": "string"},
+    "servings": {"type": "number", "exclusiveMinimum": 0},
+    "prep_minutes": {"type": ["integer", "null"], "minimum": 0},
+    "cook_minutes": {"type": ["integer", "null"], "minimum": 0},
+    "total_minutes": {"type": ["integer", "null"], "minimum": 0},
+    "category": {"type": ["string", "null"]},
+    "cuisine": {"type": ["string", "null"]},
+    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "ingredients": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ingredient"],
+        "properties": {
+          "quantity": {"type": ["number", "string", "null"]},
+          "unit": {"type": ["string", "null"]},
+          "ingredient": {"type": "string", "minLength": 1},
+          "note": {"type": ["string", "null"]},
+          "group": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["order", "instruction"],
+        "properties": {
+          "order": {"type": "integer", "minimum": 1},
+          "instruction": {"type": "string", "minLength": 1},
+          "thermomix": {
+            "type": ["object", "null"],
+            "additionalProperties": false,
+            "properties": {
+              "time_seconds": {"type": ["integer", "null"], "minimum": 0},
+              "speed": {"type": ["number", "string", "null"]},
+              "temperature_c": {"type": ["number", "null"]},
+              "reverse": {"type": "boolean", "default": false},
+              "mode": {"type": ["string", "null"]},
+              "measuring_cup": {"type": ["string", "null"]}
+            }
+          }
+        }
+      }
+    },
+    "nutrition": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "calories_per_serving": {"type": ["number", "null"], "minimum": 0},
+        "protein_g": {"type": ["number", "null"], "minimum": 0},
+        "carbs_g": {"type": ["number", "null"], "minimum": 0},
+        "fat_g": {"type": ["number", "null"], "minimum": 0}
+      }
+    },
+    "source": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {"type": ["string", "null"]},
+        "url": {"type": ["string", "null"], "format": "uri"}
+      }
+    }
+  }
+}
