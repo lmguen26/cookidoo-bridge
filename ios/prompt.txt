@@ -1,0 +1,20 @@
+Convert the source recipe below into a Cookidoo-import-friendly Thermomix recipe page.
+
+Return ONLY valid JSON with exactly these top-level keys:
+- "slug": lowercase ASCII kebab-case, concise and unique
+- "title": recipe title
+- "html": a complete standalone HTML document as one JSON string
+
+Requirements for the HTML:
+- Include visible title, servings, prep/cook/total time, ingredients, numbered preparation steps and approximate nutrition when reasonably inferable.
+- Include a valid <script type="application/ld+json"> block using schema.org Recipe.
+- Include recipeIngredient as an array of plain ingredient strings.
+- Include recipeInstructions as HowToStep objects.
+- Translate/adapt ordinary preparation into practical Thermomix TM6-compatible steps where useful, but keep pan/oven/grill steps when they produce a better result.
+- Express Thermomix steps explicitly, e.g. "5 sec / speed 7" or "4 min / 90°C / speed 1".
+- Do not claim unsupported Cookidoo guided-cooking features.
+- Prefer grams and metric units.
+- Do not add commentary outside the JSON.
+- Escape the HTML correctly so the overall response remains valid JSON.
+
+SOURCE RECIPE:
