@@ -1,0 +1,39 @@
+{
+  "slug": "trout-ginger-soy",
+  "name": "Pan-Seared Trout with Ginger-Soy Sauce",
+  "description": "A lower-calorie, high-protein trout dinner with a Thermomix-prepared ginger-soy sauce.",
+  "servings": 4,
+  "prepTime": "PT15M",
+  "cookTime": "PT15M",
+  "totalTime": "PT30M",
+  "tags": ["fish", "high-protein", "lower-calorie", "weeknight"],
+  "ingredients": [
+    "4 trout fillets, about 150-180 g each",
+    "1 tsp neutral oil",
+    "15 g fresh ginger, peeled",
+    "1 garlic clove",
+    "30 g low-sodium soy sauce",
+    "20 g rice vinegar",
+    "15 g maple syrup or honey",
+    "10 g lime juice",
+    "30 g water",
+    "1 tsp toasted sesame oil",
+    "2 green onions, thinly sliced",
+    "1 tsp sesame seeds, optional"
+  ],
+  "steps": [
+    "Pat the trout fillets dry. Season lightly with pepper; add little or no salt because the sauce contains soy sauce.",
+    "Add ginger and garlic to the Thermomix mixing bowl. Chop 5 sec/speed 7. Scrape down the bowl.",
+    "Add soy sauce, rice vinegar, maple syrup or honey, lime juice, water and sesame oil. Mix 10 sec/speed 4.",
+    "Cook the sauce 4 min/90°C/speed 1, measuring cup off. Transfer to a small serving jug and keep warm.",
+    "Heat a large non-stick frying pan over medium-high heat. Add 1 tsp neutral oil.",
+    "Place trout skin-side down if skin-on. Cook about 4-5 minutes, pressing gently for the first 20 seconds so the skin remains flat.",
+    "Turn the fillets and cook about 1-3 minutes more, depending on thickness, until just cooked through and still moist.",
+    "Plate immediately. Spoon a modest amount of warm ginger-soy sauce over each fillet and garnish with green onion and optional sesame seeds."
+  ],
+  "nutrition": {
+    "note": "Approximate; varies with fillet size and amount of sauce used.",
+    "calories": "330 kcal",
+    "protein": "35-40 g"
+  }
+}
