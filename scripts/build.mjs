@@ -12,7 +12,7 @@ const ingredientText = i => [i.quantity, i.unit, i.ingredient, i.note ? `(${i.no
 const tmText = tm => {
   if (!tm) return '';
   const parts=[];
-  if (tm.time_seconds != null) parts.push(tm.time_seconds < 60 ? `${tm.time_seconds} sec` : `${tm.time_seconds/60} min`);
+  if (tm.duration_seconds != null) parts.push(tm.duration_seconds < 60 ? `${tm.duration_seconds} sec` : `${tm.duration_seconds/60} min`);
   if (tm.temperature_c != null) parts.push(`${tm.temperature_c}°C`);
   if (tm.speed != null) parts.push(`speed ${tm.speed}`);
   if (tm.reverse) parts.push('reverse');
@@ -24,16 +24,22 @@ const tmText = tm => {
 function validate(r){
   const required=['schema_version','slug','title','servings','ingredients','steps'];
   for(const k of required) if(r[k] === undefined) throw new Error(`${r.slug || 'recipe'} missing ${k}`);
-  if(r.schema_version !== '1.0') throw new Error(`${r.slug}: unsupported schema_version`);
+  if(r.schema_version !== '1.1') throw new Error(`${r.slug}: unsupported schema_version`);
   if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(r.slug)) throw new Error(`${r.slug}: invalid slug`);
   if(!Array.isArray(r.ingredients) || !r.ingredients.length) throw new Error(`${r.slug}: ingredients required`);
   if(!Array.isArray(r.steps) || !r.steps.length) throw new Error(`${r.slug}: steps required`);
+  const ids=new Set(r.ingredients.map(i=>i.id));
+  if(ids.size !== r.ingredients.length) throw new Error(`${r.slug}: ingredient ids must be unique`);
+  for(const s of r.steps){
+    for(const id of s.ingredient_ids || []) if(!ids.has(id)) throw new Error(`${r.slug}: unknown ingredient id ${id} in step ${s.order}`);
+  }
 }
 
 function render(r){
   const ingredients=r.ingredients.map(ingredientText);
   const instructions=[...r.steps].sort((a,b)=>a.order-b.order).map(s=>({
     '@type':'HowToStep',
+    name:s.action || undefined,
     text:`${s.instruction}${tmText(s.thermomix) ? ` — Thermomix: ${tmText(s.thermomix)}` : ''}`
   }));
   const total=r.total_minutes ?? ((r.prep_minutes ?? 0)+(r.cook_minutes ?? 0) || null);
