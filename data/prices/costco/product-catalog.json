@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "retailer": "Costco Wholesale",
+  "products": [
+    {"item_number":"2013754","receipt_description":"MELANGECREPE","canonical_product":"pancake_mix","display_name":"Mélange à crêpes","category":"pantry","status":"identified"},
+    {"item_number":"1770266","receipt_description":"OEUFS MARINE","canonical_product":"marinated_eggs","display_name":"Oeufs marinés","category":"protein","status":"partial"},
+    {"item_number":"1667511","receipt_description":"CETO TORT","canonical_product":"tortillas","display_name":"Tortillas keto","category":"bakery_grains","status":"partial"},
+    {"item_number":"1902176","receipt_description":"PRANA CHIA","canonical_product":"chia_product","display_name":"Prana chia","brand":"Prana","category":"pantry","status":"partial"},
+    {"item_number":"197055","receipt_description":"TMILLS BANAN","canonical_product":"banana_product","display_name":"TMILLS BANAN","category":"food","status":"needs_enrichment"},
+    {"item_number":"144480","receipt_description":"ACTIVIA","canonical_product":"yogurt","display_name":"Activia yogurt","brand":"Activia","category":"dairy","status":"identified"},
+    {"item_number":"1743802","receipt_description":"JAMBON FN","canonical_product":"ham","display_name":"Ham","category":"protein","status":"identified"},
+    {"item_number":"1120254","receipt_description":"JUSPOM2X2L","canonical_product":"apple_juice","display_name":"Apple juice 2 x 2 L","category":"beverage","package":{"count":2,"unit_size":2,"unit":"L","total_volume_l":4},"status":"identified"},
+    {"item_number":"2412713","receipt_description":"BUBLY PMEL","canonical_product":"sparkling_water","display_name":"Bubly","brand":"Bubly","category":"beverage","status":"partial"},
+    {"item_number":"1371232","receipt_description":"KS KOMBUCHA","canonical_product":"kombucha","display_name":"Kirkland Signature kombucha","brand":"Kirkland Signature","category":"beverage","status":"identified"},
+    {"item_number":"386460","receipt_description":"KS DE SOYA","canonical_product":"soy_milk","display_name":"Kirkland Signature soy beverage","brand":"Kirkland Signature","category":"plant_milk","status":"identified"},
+    {"item_number":"1813890","receipt_description":"HYDRAFRUITS","canonical_product":"hydrafruits","display_name":"Hydrafruits","category":"food","status":"needs_enrichment"},
+    {"item_number":"1794181","receipt_description":"KS YOG GREC","canonical_product":"greek_yogurt","display_name":"Kirkland Signature Greek yogurt","brand":"Kirkland Signature","category":"dairy","status":"identified"},
+    {"item_number":"320719","receipt_description":"CRETONS","canonical_product":"cretons","display_name":"Cretons","category":"protein","status":"identified"},
+    {"item_number":"549137","receipt_description":"SALADE D'ALG","canonical_product":"seaweed_salad","display_name":"Seaweed salad","category":"prepared_food","status":"identified"},
+    {"item_number":"1713653","receipt_description":"JAMBON 2X450","canonical_product":"ham","display_name":"Ham 2 x 450 g","category":"protein","package":{"count":2,"unit_size_g":450,"total_weight_g":900},"status":"identified"},
+    {"item_number":"1391931","receipt_description":"TORT 7 FROMA","canonical_product":"cheese_tortillas","display_name":"Cheese tortillas","category":"bakery_grains","status":"partial"},
+    {"item_number":"9877788","receipt_description":"KS TOFU","canonical_product":"tofu","display_name":"Kirkland Signature tofu","brand":"Kirkland Signature","category":"protein","status":"partial"}
+  ],
+  "excluded_item_numbers": ["5001818","1985202","4581212"]
+}
