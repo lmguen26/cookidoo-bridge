@@ -1,0 +1,12 @@
+{
+  "name": "cookidoo-bridge-offers",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "superc": "node adapters/superc.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "cheerio": "^1.0.0"
+  }
+}
