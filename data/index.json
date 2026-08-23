@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "recipes": [
+    {
+      "slug": "trout-ginger-soy",
+      "title": "Pan-Seared Trout with Ginger-Soy Sauce",
+      "json_path": "data/trout-ginger-soy.json",
+      "raw_url": "https://raw.githubusercontent.com/lmguen26/cookidoo-bridge/main/data/trout-ginger-soy.json"
+    }
+  ]
+}
