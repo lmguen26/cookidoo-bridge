@@ -24,13 +24,28 @@
         {"item_number":"320719","quantity":1,"unit_price":9.99,"net_total":9.99},
         {"item_number":"549137","quantity":1,"unit_price":11.99,"net_total":11.99},
         {"item_number":"1713653","quantity":1,"unit_price":13.99,"net_total":13.99,"derived_unit_price":{"price_per_kg":15.5444}},
-        {"item_number":"1391931","quantity":1,"regular_price":13.99,"discount":11.99,"net_total":2.00},
-        {"item_number":"9877788","quantity":1,"unit_price":null,"net_total":null,"note":"Visible item number/description but price is cut off in supplied photo."}
+        {"item_number":"1391931","quantity":2,"regular_unit_price":17.99,"discount_per_unit":5.00,"net_unit_price":12.99,"net_total":25.98},
+        {"item_number":"9877788","quantity":2,"unit_price":7.99,"net_total":15.98},
+        {"item_number":"2066220","quantity":2,"unit_price":16.99,"net_total":33.98},
+        {"item_number":"49932","quantity":1,"unit_price":11.49,"net_total":11.49},
+        {"item_number":"161552","quantity":1,"unit_price":6.99,"net_total":6.99},
+        {"item_number":"434335","quantity":1,"regular_price":13.49,"discount":3.50,"net_total":9.99},
+        {"item_number":"374190","quantity":1,"unit_price":12.49,"net_total":12.49},
+        {"item_number":"1494429","quantity":1,"unit_price":12.49,"net_total":12.49},
+        {"item_number":"22849","quantity":1,"unit_price":24.52,"net_total":24.52},
+        {"item_number":"10930","quantity":1,"unit_price":28.81,"net_total":28.81},
+        {"item_number":"11521","quantity":1,"unit_price":12.13,"net_total":12.13},
+        {"item_number":"2118712","quantity":1,"unit_price":7.99,"net_total":7.99,"derived_unit_price":{"price_per_kg":7.3981}},
+        {"item_number":"3084","quantity":1,"unit_price":7.99,"net_total":7.99,"derived_unit_price":{"price_per_kg":1.7615,"price_per_lb":0.799}},
+        {"item_number":"395243","quantity":1,"unit_price":5.79,"net_total":5.79},
+        {"item_number":"31574","quantity":1,"regular_price":35.12,"discount":8.00,"net_total":27.12},
+        {"item_number":"39846","quantity":1,"unit_price":23.46,"net_total":23.46}
       ],
       "excluded":[
         {"item_number":"5001818","receipt_description":"PANTALON LVS","reason":"non-food clothing"},
         {"item_number":"1985202","receipt_description":"PANTALON BR","quantity":2,"reason":"non-food clothing"}
-      ]
+      ],
+      "notes":["Second photo completes the lower portion of the same receipt.","Membership, payment card and transaction identifiers are not stored."]
     }
   ]
 }
