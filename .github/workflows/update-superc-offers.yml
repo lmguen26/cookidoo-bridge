@@ -1,0 +1,61 @@
+name: Update Super C offers
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_url:
+        description: Optional Super C flyer/catalog URL override
+        required: false
+        type: string
+  schedule:
+    # Tuesday evening in Quebec during daylight-saving time (23:30 UTC = 19:30 EDT).
+    # Manual runs remain available at any time.
+    - cron: '30 23 * * 2'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: superc-offers
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: offers/package.json
+
+      - name: Install offer adapter dependencies
+        working-directory: offers
+        run: npm install --no-audit --no-fund
+
+      - name: Fetch and normalize Super C offers
+        env:
+          SUPERC_SOURCE_URL: ${{ inputs.source_url }}
+        run: |
+          if [ -z "$SUPERC_SOURCE_URL" ]; then unset SUPERC_SOURCE_URL; fi
+          node offers/adapters/superc.mjs
+
+      - name: Show summary
+        run: |
+          node -e "const x=require('./data/offers/superc-current.json'); console.log('Super C offers:',x.offers.length,'valid',x.valid_from,'to',x.valid_to)"
+
+      - name: Commit updated offers
+        run: |
+          if git diff --quiet -- data/offers/superc-current.json; then
+            echo 'No offer changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/offers/superc-current.json
+          git commit -m 'Update Super C weekly offers'
+          git push
