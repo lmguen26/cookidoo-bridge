@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "retailer": {"name":"Costco Wholesale","store":"Quebec #503","city":"Quebec","province":"QC","currency":"CAD"},
+  "privacy_note": "Membership/payment identifiers are intentionally not stored.",
+  "receipts": [
+    {
+      "receipt_id":"costco-503-photo-002",
+      "purchase_date":null,
+      "source":"receipt_photo",
+      "items":[
+        {"item_number":"2013754","quantity":2,"unit_price":19.99,"net_total":39.98},
+        {"item_number":"1770266","quantity":1,"unit_price":10.99,"net_total":10.99},
+        {"item_number":"1667511","quantity":1,"unit_price":7.99,"net_total":7.99},
+        {"item_number":"1902176","quantity":1,"unit_price":12.99,"net_total":12.99},
+        {"item_number":"197055","quantity":1,"unit_price":8.99,"net_total":8.99},
+        {"item_number":"144480","quantity":1,"unit_price":10.99,"net_total":10.99},
+        {"item_number":"1743802","quantity":1,"unit_price":12.99,"net_total":12.99},
+        {"item_number":"1120254","quantity":1,"unit_price":6.99,"net_total":6.99,"derived_unit_price":{"price_per_l":1.7475}},
+        {"item_number":"2412713","quantity":1,"unit_price":15.79,"net_total":15.79,"fees":{"ecofee":0.64,"deposit":3.20}},
+        {"item_number":"1371232","quantity":2,"unit_price":19.99,"net_total":39.98,"fees_per_line":{"ecofee":0.32,"deposit":0.80}},
+        {"item_number":"386460","quantity":2,"unit_price":10.99,"net_total":21.98},
+        {"item_number":"1813890","quantity":1,"unit_price":17.99,"net_total":17.99},
+        {"item_number":"1794181","quantity":1,"unit_price":8.99,"net_total":8.99},
+        {"item_number":"320719","quantity":1,"unit_price":9.99,"net_total":9.99},
+        {"item_number":"549137","quantity":1,"unit_price":11.99,"net_total":11.99},
+        {"item_number":"1713653","quantity":1,"unit_price":13.99,"net_total":13.99,"derived_unit_price":{"price_per_kg":15.5444}},
+        {"item_number":"1391931","quantity":1,"regular_price":13.99,"discount":11.99,"net_total":2.00},
+        {"item_number":"9877788","quantity":1,"unit_price":null,"net_total":null,"note":"Visible item number/description but price is cut off in supplied photo."}
+      ],
+      "excluded":[
+        {"item_number":"5001818","receipt_description":"PANTALON LVS","reason":"non-food clothing"},
+        {"item_number":"1985202","receipt_description":"PANTALON BR","quantity":2,"reason":"non-food clothing"}
+      ]
+    }
+  ]
+}
