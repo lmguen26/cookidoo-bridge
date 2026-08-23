@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lmguen26.github.io/cookidoo-bridge/offers/schema/offer.schema.json",
+  "title": "Normalized Grocery Offers",
+  "type": "object",
+  "required": ["schema_version", "banner", "valid_from", "valid_to", "offers"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "banner": {"type": "string"},
+    "store": {"type": ["object", "null"], "properties": {"id": {"type": ["string", "null"]}, "name": {"type": ["string", "null"]}, "postal_code": {"type": ["string", "null"]}}},
+    "valid_from": {"type": "string", "format": "date"},
+    "valid_to": {"type": "string", "format": "date"},
+    "source_url": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "offers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category", "price_text", "meal_planning_relevance"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "brand": {"type": ["string", "null"]},
+          "category": {"enum": ["meat", "fish", "seafood", "tofu", "eggs", "dairy", "vegetable", "fruit", "legume", "grain", "pasta", "pantry", "other"]},
+          "price": {"type": ["number", "null"]},
+          "currency": {"const": "CAD"},
+          "unit": {"type": ["string", "null"]},
+          "price_text": {"type": "string"},
+          "regular_price": {"type": ["number", "null"]},
+          "discount_percent": {"type": ["number", "null"]},
+          "quantity_text": {"type": ["string", "null"]},
+          "image_url": {"type": ["string", "null"]},
+          "product_url": {"type": ["string", "null"]},
+          "meal_planning_relevance": {"type": "number", "minimum": 0, "maximum": 1},
+          "tags": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}
