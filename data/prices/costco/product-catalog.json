@@ -19,7 +19,21 @@
     {"item_number":"549137","receipt_description":"SALADE D'ALG","canonical_product":"seaweed_salad","display_name":"Seaweed salad","category":"prepared_food","status":"identified"},
     {"item_number":"1713653","receipt_description":"JAMBON 2X450","canonical_product":"ham","display_name":"Ham 2 x 450 g","category":"protein","package":{"count":2,"unit_size_g":450,"total_weight_g":900},"status":"identified"},
     {"item_number":"1391931","receipt_description":"TORT 7 FROMA","canonical_product":"cheese_tortillas","display_name":"Cheese tortillas","category":"bakery_grains","status":"partial"},
-    {"item_number":"9877788","receipt_description":"KS TOFU","canonical_product":"tofu","display_name":"Kirkland Signature tofu","brand":"Kirkland Signature","category":"protein","status":"partial"}
+    {"item_number":"9877788","receipt_description":"KS TOFU","canonical_product":"tofu","display_name":"Kirkland Signature tofu","brand":"Kirkland Signature","category":"protein","status":"identified"},
+    {"item_number":"2066220","receipt_description":"POULET AU CH","canonical_product":"chicken_prepared","display_name":"Poulet au CH","category":"protein","status":"needs_enrichment"},
+    {"item_number":"49932","receipt_description":"ROUL LEGUME","canonical_product":"vegetable_rolls","display_name":"Rouleaux aux légumes","category":"prepared_food","status":"partial"},
+    {"item_number":"161552","receipt_description":"KS QUE PASA","canonical_product":"tortilla_chips","display_name":"Kirkland / Que Pasa","category":"snacks","status":"partial"},
+    {"item_number":"434335","receipt_description":"OKA ORIGINAL","canonical_product":"cheese","display_name":"OKA Original","brand":"OKA","category":"dairy","status":"identified"},
+    {"item_number":"374190","receipt_description":"SALSA","canonical_product":"salsa","display_name":"Salsa","category":"pantry","status":"identified"},
+    {"item_number":"1494429","receipt_description":"CARBONAUT","canonical_product":"bread","display_name":"Carbonaut","brand":"Carbonaut","category":"bakery_grains","status":"partial"},
+    {"item_number":"22849","receipt_description":"POULET ASPER","canonical_product":"chicken_asparagus","display_name":"Poulet asperges","category":"prepared_food","status":"partial"},
+    {"item_number":"10930","receipt_description":"FILET TRUITE","canonical_product":"trout_fillet","display_name":"Filet de truite","category":"fish","status":"identified"},
+    {"item_number":"11521","receipt_description":"SALADE QUINO","canonical_product":"quinoa_salad","display_name":"Salade de quinoa","category":"prepared_food","status":"identified"},
+    {"item_number":"2118712","receipt_description":"TOFU/2X540G","canonical_product":"tofu","display_name":"Tofu 2 x 540 g","category":"protein","package":{"count":2,"unit_size_g":540,"total_weight_g":1080},"status":"identified"},
+    {"item_number":"3084","receipt_description":"OIGNONS 10LB","canonical_product":"onions","display_name":"Oignons 10 lb","category":"produce","package":{"weight_lb":10,"total_weight_kg":4.53592},"status":"identified"},
+    {"item_number":"395243","receipt_description":"MUFFIN ANGLA","canonical_product":"english_muffins","display_name":"Muffins anglais","category":"bakery_grains","status":"identified"},
+    {"item_number":"31574","receipt_description":"PORC BELLY","canonical_product":"pork_belly","display_name":"Flanc de porc","category":"protein","status":"identified"},
+    {"item_number":"39846","receipt_description":"PATE CHINOIS","canonical_product":"shepherds_pie","display_name":"Pâté chinois","category":"prepared_food","status":"identified"}
   ],
   "excluded_item_numbers": ["5001818","1985202","4581212"]
 }
