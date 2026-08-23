@@ -1,0 +1,9 @@
+{
+  "name":"Smart Meal Planner",
+  "short_name":"Meal Planner",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f6f3ec",
+  "theme_color":"#f6f3ec",
+  "description":"Weekly meal planning from inventory, farm/garden produce, grocery deals, nutrition targets and Cookidoo-compatible recipes."
+}
