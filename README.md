@@ -1,71 +1,91 @@
 # Cookidoo Bridge
 
-A JSON-first bridge for turning ChatGPT/Thermomix recipes into public recipe pages that can be imported into Cookidoo by URL.
+A JSON-first recipe workflow for planning on iOS, versioning in GitHub, and importing into Cookidoo Created Recipes through browser automation.
 
-## Architecture
+## Current architecture
 
-`Recipe/source → ChatGPT Project → canonical JSON → GitHub data/ → renderer → GitHub Pages → Cookidoo URL import`
+`Recipe/source → ChatGPT → canonical JSON → GitHub → Tampermonkey → authenticated Cookidoo Created Recipe editor → review → Confirm`
 
-The **canonical artifact is JSON**. HTML is generated automatically and should not normally be edited by hand.
+The **canonical artifact is JSON**. Cookidoo credentials are never stored in GitHub or recipe JSON.
 
 ## Canonical recipe schema
 
-- Schema file: `schema/recipe.schema.json`
-- Current schema version: `1.0`
-- Public schema URL after GitHub Pages deployment:
-  `https://lmguen26.github.io/cookidoo-bridge/schema/recipe.schema.json`
+- Schema: `schema/recipe.schema.json`
+- Recipes: `data/<slug>.json`
+- Manifest: `data/index.json`
+- Thermomix settings are structured per preparation step (`duration_seconds`, `temperature_c`, `speed`, `reverse`, etc.) rather than embedded in prose.
 
-A recipe belongs in:
+## Tampermonkey importer
 
-`data/<slug>.json`
+Userscripts live in `userscripts/`.
 
-Required fields include `schema_version`, `slug`, `title`, `servings`, `ingredients`, and `steps`.
+- Stable/current baseline: `userscripts/cookidoo-importer.user.js`
+- Development channel: `userscripts/cookidoo-importer-dev.user.js`
+- Milestone snapshots: `userscripts/archive/`
 
-Thermomix settings are structured per step rather than embedded in prose.
+Stable raw install URL:
 
-## Automatic rendering
+`https://raw.githubusercontent.com/lmguen26/cookidoo-bridge/main/userscripts/cookidoo-importer.user.js`
 
-The workflow `.github/workflows/render-recipes.yml` runs whenever canonical recipe JSON, the schema, or renderer changes.
+Development raw install URL:
 
-It executes:
+`https://raw.githubusercontent.com/lmguen26/cookidoo-bridge/main/userscripts/cookidoo-importer-dev.user.js`
 
-`node scripts/build.mjs`
+The scripts include `@updateURL` and `@downloadURL` metadata so tested updates can be distributed through GitHub rather than copied manually from chat.
 
-and regenerates:
+See `userscripts/README.md` for current DOM findings and test discipline.
 
-- `recipes/<slug>.html`
-- `index.html`
+## Cross-device workflow
 
-Each generated recipe page includes visible recipe content plus `schema.org/Recipe` JSON-LD.
+### iPhone / iPad
 
-## iOS workflow
+1. Create, adapt or plan recipes in ChatGPT.
+2. Normalize to canonical Cookidoo Bridge JSON.
+3. Commit/store the recipe JSON in GitHub.
+4. Use the Smart Meal Planner and human-readable recipe library as needed.
 
-The recommended iPhone workflow is now deliberately simple:
+### Windows / macOS
 
-1. Use the ChatGPT Project to convert/review a recipe and output canonical JSON only.
-2. Share or copy that JSON to the **Publish Cookidoo JSON** Shortcut.
-3. The Shortcut writes only `data/<slug>.json` to GitHub using a fine-grained token.
-4. GitHub Actions generates the HTML automatically.
-5. The Shortcut returns:
-   `https://lmguen26.github.io/cookidoo-bridge/recipes/<slug>.html`
-6. Paste that URL into Cookidoo → Created Recipes → Import recipe.
+1. Open a new blank Cookidoo Created Recipe while logged in.
+2. Run the Tampermonkey importer.
+3. Import the canonical recipe JSON.
+4. Review ingredients, instructions, time, temperature, speed and reverse direction.
+5. Confirm manually in Cookidoo.
 
-Detailed Shortcut instructions are in `ios/SHORTCUT_SETUP.md`.
+Detailed architecture: `docs/CROSS_DEVICE_WORKFLOW.md`.
+
+## Testing
+
+Start importer development against a new blank Cookidoo Created Recipe using:
+
+`tests/three-step-carrots.json`
+
+Do not promote a dev userscript to stable until ingredients, all preparation steps and Thermomix settings persist after refresh.
 
 ## GitHub Pages
 
-Publish from the `main` branch root:
+GitHub Pages remains useful, but **not as the Cookidoo import transport**. Cookidoo currently rejects `github.io` recipe URLs as an unapproved source.
 
-**Settings → Pages → Deploy from a branch → `main` → `/ (root)`**
+Pages now serves:
+
+- `/planner/` — Smart Meal Planner
+- `/recipes/` — human-readable recipe library
+- future `/tools/` — validation and recipe handoff UI
 
 Site:
 
 `https://lmguen26.github.io/cookidoo-bridge/`
 
-Example recipe:
+Planner:
 
-`https://lmguen26.github.io/cookidoo-bridge/recipes/trout-ginger-soy.html`
+`https://lmguen26.github.io/cookidoo-bridge/planner/`
+
+## Existing renderer
+
+The existing `.github/workflows/render-recipes.yml` and `scripts/build.mjs` may continue to generate human-readable HTML from canonical JSON. Those pages are useful for review and the planner, even though Cookidoo URL import no longer accepts the GitHub Pages domain.
 
 ## Security
 
-Use a fine-grained GitHub personal access token restricted to this repository with only **Contents: Read and write**. Never commit the token to this repository or include it inside recipe JSON.
+- Never commit Cookidoo credentials, GitHub tokens or household secrets.
+- Use a fine-grained GitHub token restricted to this repository if an iOS Shortcut writes recipe JSON.
+- The Tampermonkey importer runs inside your authenticated Cookidoo browser session and should leave final Confirm/review manual.
