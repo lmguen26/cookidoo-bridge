@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.1",
+  "slug": "test-three-step-carrots",
+  "title": "Cookidoo Importer Three-Step Test",
+  "servings": 2,
+  "ingredients": [
+    {"quantity": 200, "unit": "g", "ingredient": "water"},
+    {"quantity": 100, "unit": "g", "ingredient": "carrots"},
+    {"quantity": 1, "unit": "tsp", "ingredient": "salt"}
+  ],
+  "steps": [
+    {
+      "order": 1,
+      "instruction": "Place the carrots in the mixing bowl.",
+      "thermomix": null
+    },
+    {
+      "order": 2,
+      "instruction": "Chop the carrots.",
+      "thermomix": {
+        "duration_seconds": 5,
+        "temperature_c": null,
+        "speed": 5,
+        "reverse": false,
+        "mode": null,
+        "measuring_cup": null
+      }
+    },
+    {
+      "order": 3,
+      "instruction": "Add the water and salt, then cook.",
+      "thermomix": {
+        "duration_seconds": 180,
+        "temperature_c": 98,
+        "speed": 2.5,
+        "reverse": true,
+        "mode": null,
+        "measuring_cup": null
+      }
+    }
+  ]
+}
